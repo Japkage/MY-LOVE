@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For The Best Gf Ever</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            overflow: hidden;
+            position: relative;
+        }
+        h2 {
+            font-size: 3rem;
+            color: orange;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin: 10px 0 5px;
+            position: absolute;
+            top: 5px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-top: 80px;
+            padding: 0 20px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background-color 0.3s;
+            z-index: 10;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #ff4c4c;
+            transform: scale(1.05);
+        }
+        .garden {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .falling-image {
+            position: absolute;
+            top: -100px;
+            width: 60px;
+            height: 60px;
+            animation: fall 3s forwards ease-in-out;
+        }
+        @keyframes fall {
+            0% { top: -100px; opacity: 1; }
+            100% { top: 80vh; opacity: 1; }
+        }
+        .cat {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            transform: scale(0);
+            transition: transform 1s ease-in-out;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .cat img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        .speech-bubble {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 8px;
+            font-size: 1rem;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 160px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Jacinta Ivory + Japnaam Bains</h2>
+    <h1>I love you so much, Jacinta! 💖</h1>
+    <button id="loveButton">Click this button for how many times you love me</button>
+    <div class="garden" id="garden"></div>
+
+    <script>
+        const button = document.getElementById('loveButton');
+        const garden = document.getElementById('garden');
+
+        button.addEventListener('click', () => {
+            for (let i = 0; i < 5; i++) {
+                const fallingImage = document.createElement('img');
+                fallingImage.classList.add('falling-image');
+                fallingImage.src = 'https://example.com/your-image.jpg';
+                fallingImage.style.left = Math.random() * 90 + '%';
+                garden.appendChild(fallingImage);
+            }
+
+            const cat = document.createElement('div');
+            cat.classList.add('cat');
+            const catImage = document.createElement('img');
+            catImage.src = 'download.jpeg';
+            catImage.alt = 'Tortoiseshell Cat';
+            cat.appendChild(catImage);
+            garden.appendChild(cat);
+            setTimeout(() => { cat.style.transform = 'scale(1)'; }, 100);
+
+            const speechBubble = document.createElement('div');
+            speechBubble.classList.add('speech-bubble');
+            speechBubble.innerText = "Love this sigma Japnaam guy Forever";
+            cat.appendChild(speechBubble);
+        });
+    </script>
+</body>
+</html>
